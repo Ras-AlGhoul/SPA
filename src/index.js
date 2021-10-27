@@ -16,7 +16,7 @@ let state = {
 }
 
 // Append heading node to the DOM
-const app = document.querySelector('#root')
+const app = document.querySelector('#root');
 app.append(nav, search, nextBtn, prevBtn)
 
 const form = document.querySelector('form')
