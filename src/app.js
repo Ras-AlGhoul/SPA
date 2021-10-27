@@ -1,6 +1,29 @@
-const app = document.querySelector('#root')
+const app = document.querySelector('#root');
+const prevBtn = document.createElement('button');
+const nextBtn = document.createElement('button');
+const btnDiv = document.createElement('div');
+btnDiv.setAttribute("class", "btnDiv")
+prevBtn.innerText= 'Previous Page';
+nextBtn.innerText= 'Next Page';
+btnDiv.append(prevBtn, nextBtn);
 
+const nextsBtn = state => {
+  nextBtn.addEventListener('click', () => {
+    state.currentPage += 1;
+    fetchData(state,updatePage);
+    if(state.currentPage <= 1){
+      prevBtn.style.display= 'none';
+      }
+  });
+}
+const prevsBtn = state => {
+  prevBtn.addEventListener('click', () => {
+    state.currentPage -= 1;
+    fetchData(state,updatePage);
+   });
+}
 
+ 
 const fetchData = (state, callback) => {
   const apiKey = 'SQbJLLt48acdgzRq9D0EVZ9YWBOvAz2IpVw03ECdFbQ';
   fetch(`https://api.unsplash.com/search/photos?client_id=${apiKey}&query=${state.inputValue}&page=${state.currentPage}&per_page=9`)
@@ -35,15 +58,12 @@ const updatePage = (res, state) => {
                                 </div>
                             </div>
                         </div>`;
-
-      // const image = document.createElement('img');
-      // image.src = i;
-      // card.append(image);
-
       gallery.append(card);
     })
-    app.append(gallery);
+    app.append(gallery, btnDiv);
   })
 }
 
-module.exports = { fetchData, updatePage };
+
+
+module.exports = { fetchData, updatePage ,prevsBtn, nextsBtn };

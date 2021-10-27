@@ -35,6 +35,24 @@ input{
   padding-left: 20px;
   background-color: rgba(105, 172, 87, 0.249);
 }
+
+button{
+  margin: 5px;
+  width:120px;
+  height:30px;
+  border: solid 1px;
+  border-radius: 5px;
+  display: inline-block;
+  background-color: transparent;
+}
+button:hover{
+  background-color: rgba(105, 172, 87, 0.249) ;
+}
+.btnDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .root__card{
   margin: 10px;
 }
