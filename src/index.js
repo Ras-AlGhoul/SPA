@@ -47,3 +47,4 @@ form.addEventListener('submit', e => {
   nextsBtn(state);
   stateSearchHistory(state);
 });
+
