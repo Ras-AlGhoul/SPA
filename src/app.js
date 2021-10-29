@@ -9,8 +9,7 @@ btnDiv.append(prevBtn, nextBtn);
 
 const fetchData = (dataState, callback) => {
   const state = dataState;
-  const apiKey = 'SQbJLLt48acdgzRq9D0EVZ9YWBOvAz2IpVw03ECdFbQ';
-  fetch(`https://api.unsplash.com/search/photos?client_id=${apiKey}&query=${state.inputValue}&page=${state.currentPage}&per_page=9`)
+  fetch(`https://ghul-server.herokuapp.com/${state.inputValue}/${state.currentPage}`)
     .then(res => {
       state.pageData = res.json();
     })
